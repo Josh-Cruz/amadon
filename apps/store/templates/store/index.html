@@ -1,0 +1,95 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+        {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      {% comment %} <link rel="stylesheet" href="{% static 'ourApp/css/main.css' %}" media="screen" title="no title"  charset="utf-8"> {% endcomment %}
+      <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->    
+      </head>
+    <body>
+        <h1>Jedi Academy Store</h1>
+        <table>
+            <thead>
+                <tr>
+                <th colspan="1">Item</th>
+                <th colspan="1">Price</th>
+                <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jedi Robes</td>
+                    <td>$39.99</td>
+                    <td>
+                        <form action='/process/' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='item' value='robes' />
+                        <input type='submit' value='Buy!' />
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lightsaber</td>
+                    <td>$1399.99</td>
+                    <td>
+                        <form action='/process/' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='item' value='lightsaber' />
+                        <input type='submit' value='Buy!' />
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jedi Holocron</td>
+                    <td>$3999.99</td>
+                    <td>
+                        <form action='/process/' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='item' value='holocron' />
+                        <input type='submit' value='Buy!' />
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ancient Jedi Manuscript</td>
+                    <td>$299.99</td>
+                    <td>
+                        <form action='/process/' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input type='hidden' name='item' value='manuscript' />
+                        <input type='submit' value='Buy!' />
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Now Accepting Imperial credits!</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </body>
+</html>
